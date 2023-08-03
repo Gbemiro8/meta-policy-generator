@@ -1,6 +1,7 @@
-#include<iostream>
-#include "pfile.h"
+#include <iostream>
 #include <filesystem>
+#include "pfile.h"
+#include "util.h"
 
 #define NUM_COMMAND_LINE_ARGUMENT 2
 #define PROGRAM_NAME "meta-touch"
@@ -26,9 +27,11 @@ int main(int argc, char **argv) {
 
     std::filesystem::path cwd = std::filesystem::current_path();
 
-    std::cout << cwd;
+    std::vector<std::string> ans = util::split_filepath_by_delimeter(std::string(cwd), '/');
 
-    pfile->myfile << "something random";
+    for (auto x : ans) printf("%s", x.c_str());
+
+    // pfile->myfile << "something random";
 
     delete pfile;
     

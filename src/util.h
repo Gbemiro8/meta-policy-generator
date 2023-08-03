@@ -7,8 +7,9 @@
 
 namespace util {
     
-std::vector<string> split_string_by_delimeter(char *filepath, char delimeter);
-FILE find_meta_file(std::vector<std::string> paths);
+std::vector<std::string> split_filepath_by_delimeter(const std::string &filepath, char delimeter) noexcept;
+std::string join_filepath(const std::vector<std::string> &filepath, char delimeter);
+// FILE find_meta_file(std::vector<std::string> filepaths);
 
 }
 
